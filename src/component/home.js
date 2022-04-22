@@ -30,10 +30,6 @@ function Home(props) {
   
     const display_movie = (movies) => {
       return (
-
-        // there is probably some useState thing that would
-        // allow me to choose which movies I want to expand
-        // details on
         <div key={movies.film_id}>
           <h3 className="movie__title"> {movies.title} </h3>
             <li>

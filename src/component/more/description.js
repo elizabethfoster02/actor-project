@@ -23,7 +23,7 @@ function Description(props) {
   const display_actor = (actor) => {
     return (
       <div key={actor}>
-        <p className="actor__name"> {actor} </p>
+        <li className="actor__name">{actor} </li>
       </div>
     )
   }
@@ -36,7 +36,11 @@ function Description(props) {
               More information about <i>{details.title} </i> ({details.release_year})
             </h3>
             <p className="movie__description"> {details.description} </p>
-            {display_actor(details.actors)}
+            <p className="actor__description"> The following actors performed in <i>{details.title}</i> </p>
+            
+            <div className={details.actor}> 
+              {details.actor_list.map(display_actor)}
+            </div>
             
 
             {/* <li>
@@ -49,16 +53,13 @@ function Description(props) {
 
   return (
       <div>
-        <div className={details.list}>
-          {details.map(display_details)}
-        </div>
-
         {/* <p>hello, {searchParams.get("id")}</p> */}
-        {/* {details.map(display_details)} */}
+        {details.map(display_details)}
 
         {/* <Link to={`/description?id=${searchParams.get("id")+"1"}`}>
           <button> Next movie </button>
         </Link> */}
+
         <Link to={`/`}>
           <button> Back to movie list </button>
         </Link>
