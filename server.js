@@ -7,7 +7,7 @@ console.log(process.env.DATABASE_URL);
 
 app.listen(7000, () => console.log("Listening!"));
 
-app.get('/api/movies', async(req, res) => {
+app.get(`/api/movies`, async(req, res) => {
     console.log(req.query.id)
     const titles = await pool.query 
                                       (`SELECT title,
@@ -19,7 +19,7 @@ app.get('/api/movies', async(req, res) => {
                                                     WHERE film.film_id = film_actor.film_id
                                                     ) as actor_list
                                       FROM film
-                                      WHERE film_id = 133`)
+                                      WHERE film.film_id = $1`, [req.query.id])
     res.json(titles.rows)
 })
 
