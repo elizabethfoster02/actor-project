@@ -25,7 +25,6 @@ class App extends Component {
                 <Link to="/">Movie List</Link>
               </h1>
 
-
               <li>
                 <Link to="/about">About Us</Link>
               </li>
@@ -36,7 +35,6 @@ class App extends Component {
                   <Route exact path='/description' element={< Description />}></Route>
 
               </Routes>
-
 
             </header>
            </div>
