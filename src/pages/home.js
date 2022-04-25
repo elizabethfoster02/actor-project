@@ -20,14 +20,6 @@ function Home(props) {
   
     useEffect(() => getMovies(), []);
   
-    const display_actor = (actor) => {
-      return (
-        <div key={actor}>
-          <p className="actor__name"> {actor} </p>
-        </div>
-      )
-    }
-  
     const display_movie = (movies) => {
       return (
         <div key={movies.film_id}>

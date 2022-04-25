@@ -20,7 +20,11 @@ app.get(`/api/movies`, async(req, res) => {
                                                     ) as actor_list
                                       FROM film
                                       WHERE film.film_id = $1`, [req.query.id])
-    res.json(titles.rows)
+    if (titles.rows.length > 0) {
+        res.json(titles.rows[0])
+    } else {
+        res.status(404).end("Film not found")
+    }
 })
 
 // gets the title of the movies for in
