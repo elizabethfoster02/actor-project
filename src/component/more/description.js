@@ -13,7 +13,7 @@ function Description(props) {
   useEffect(() => getDetails(), []);
 
   const getDetails = () => {
-    axios.get(`/api?id=${details.film_id}`) // called api from react app that talks to database
+    axios.get(`/api/movies?=${details.film_id}`) // called api from react app that talks to database
     .then(result => {
       console.log(result.data);
       const myDetails = result.data;
